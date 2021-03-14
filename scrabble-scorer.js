@@ -3,7 +3,6 @@
 const input = require("readline-sync");
 
 const oldPointStructure = {
-  0: [` `],
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
   2: ['D', 'G'],
   3: ['B', 'C', 'M', 'P'],
@@ -12,15 +11,6 @@ const oldPointStructure = {
   8: ['J', 'X'],
   10: ['Q', 'Z']
 };
-const vowelPointStructure = {
-  0:[` `],
-  1:[`B`,`C`,`D`,`F`,`G`,`H`,`J`,`K`,`L`,`M`,`N`,`P`,`Q`,`R`,`S`,`T`,`V`,`X`,`Z`],
-  2:[`A`,`E`,`I`,`O`,`U`,`Y`]
-}
-const simplePointStructure={
-  0:[` `],
-  1:[`B`,`C`,`D`,`F`,`G`,`H`,`J`,`K`,`L`,`M`,`N`,`P`,`Q`,`R`,`S`,`T`,`V`,`X`,`Z`,`A`,`E`,`I`,`O`,`U`,`Y`]
-}
 
 function oldScrabbleScorer(word) {
 	word = word.toUpperCase();
@@ -46,9 +36,14 @@ function initialPrompt() {
    console.log("Let's play some scrabble! Enter a word:");
    let wordInput= input.question(`Enter a word to score:`)
    console.log(oldScrabbleScorer(wordInput))
+   console.log(simpleScore(wordInput))
 };
 
-let simpleScore= function(word) {
+let simpleScore=function(word){
+  const simplePointStructure={
+  0:[` `],
+  1:[`B`,`C`,`D`,`F`,`G`,`H`,`J`,`K`,`L`,`M`,`N`,`P`,`Q`,`R`,`S`,`T`,`V`,`X`,`Z`,`A`,`E`,`I`,`O`,`U`,`Y`]
+}
 	word = word.toUpperCase();
 	let letterPoints = "";
  
@@ -62,6 +57,9 @@ let simpleScore= function(word) {
  
 	  }
 	}
+	return letterPoints;
+ }
+
 
 let vowelBonusScore;
 
