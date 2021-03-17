@@ -123,7 +123,7 @@ function transform(inp) {
   let out = {}
   for (const inpKey in inp){
     for (let i=0;i<inp[inpKey].length;i++){
-      out[`${inp[inpKey][i].toLowerCase()}`]=`${inpKey}`
+      out[`${inp[inpKey][i].toLowerCase()}`]=Number(`${inpKey}`)
     }
   }
   return out
@@ -133,7 +133,7 @@ let newPointStructure= transform(oldPointStructure)
 console.log(newPointStructure)
 
 function runProgram() {
-   //initialPrompt();
+   initialPrompt();
 
 }
 
