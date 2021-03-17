@@ -123,7 +123,7 @@ function transform(inp) {
   let out = {}
   for (const inpKey in inp){
     for (let i=0;i<inp[inpKey].length;i++){
-      out[`${inp[inpKey][i]}`]=`${inpKey}`
+      out[`${inp[inpKey][i].toLowerCase()}`]=`${inpKey}`
     }
   }
   return out
