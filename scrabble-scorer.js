@@ -83,7 +83,26 @@ let vowelBonusScore=function(word){
 	}
 	return letterPoints;
  }
-let scrabbleScore;
+let scrabbleScore = function(word){
+  const vowelPointStructure={ 
+  0:[` `],
+  1:[`B`,`C`,`D`,`F`,`G`,`H`,`J`,`K`,`L`,`M`,`N`,`P`,`Q`,`R`,`S`,`T`,`V`,`X`,`Z`],
+  3:[`A`,`E`,`I`,`O`,`U`,`Y`]}
+	word = word.toUpperCase();
+	let letterPoints = 0;
+ 
+	for (let i = 0; i < word.length; i++) {
+ 
+	  for (const pointValue in vowelPointStructure) {
+ 
+		 if (vowelPointStructure[pointValue].includes(word[i])) {
+			letterPoints += Number(pointValue)
+		 }
+ 
+	  }
+	}
+	return letterPoints;
+ }
 
 const scoringAlgorithms = [{name:`Simple Score`,description:`	Each letter is worth 1 point.`,scorerFunction:simpleScore},{name:`Bonus Vowels`,description:`Vowels are 3 pts, consonants are 1 pt.`,scorerFunction:vowelBonusScore},{name:`Scrabble`,description:`The traditional scoring algorithm.`,scorerFunction:oldScrabbleScorer}];
 
@@ -100,12 +119,21 @@ Enter 0, 1, or 2:`)
 return scoringAlgorithms[scoringTemplete].scorerFunction
 }
 
-function transform() {};
+function transform(inp) {
+  let out = {}
+  for (const inpKey in inp){
+    for (let i=0;i<inp[inpKey].length;i++){
+      out[`${inp[inpKey][i]}`]=`${inpKey}`
+    }
+  }
+  return out
+};
 
-let newPointStructure;
+let newPointStructure= transform(oldPointStructure)
+console.log(newPointStructure)
 
 function runProgram() {
-   initialPrompt();
+   //initialPrompt();
 
 }
 
