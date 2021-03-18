@@ -122,7 +122,7 @@ function transform(inp) {
 let newPointStructure= transform(oldPointStructure)
 //console.log(newPointStructure[])
 // console.log(scrabbleScore(`car`))
-console.log(scoringAlgorithms)
+//console.log(scoringAlgorithms)
 function runProgram() {
    initialPrompt();
 
