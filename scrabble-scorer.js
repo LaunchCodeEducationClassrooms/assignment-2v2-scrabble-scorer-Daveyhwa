@@ -94,7 +94,7 @@ let scrabbleScore = function(word){
 	return letterPoints;
  }
 
-const scoringAlgorithms = [{name:`Simple Score`,description:`Each letter is worth 1 point.`,scorerFunction:simpleScore},{name:`Bonus Vowels`,description:`Vowels are 3 pts, consonants are 1 pt.`,scorerFunction:vowelBonusScore},{name:`Scrabble`,description:`The traditional scoring algorithm.`,scorerFunction:scrabbleScore}];
+const scoringAlgorithms = [{name:`Simple Score`,description:`Each letter is worth 1 point.`,scorerFunction:function(){return simpleScore}},{name:`Bonus Vowels`,description:`Vowels are 3 pts, consonants are 1 pt.`,scorerFunction:function(){vowelBonusScore}},{name:`Scrabble`,description:`The traditional scoring algorithm.`,scorerFunction:function(){scrabbleScore}}];
 
 function scorerPrompt() {
 let scoringTemplete=``
